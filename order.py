@@ -6,6 +6,7 @@ class Ord(BaseModel):
     brand : str
     model : str
     price : int
+    varient : str
 
 class OrderRequest(BaseModel):
     user: User
@@ -22,6 +23,7 @@ class Order(Login):
                 "order": "order details",
                 "brand": request.order.brand,
                 "model": request.order.model,
-                "price": request.order.price
+                "price": request.order.price,
+                "varient": request.order.varient
             }
         raise HTTPException(status_code=401, detail="Order failed due to authentication error!")
